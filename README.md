@@ -3,7 +3,7 @@
   - Login
 
 ## ⭐ Feature Selanjutnya:
-  - Logout
+  - produk
   - Slicing UI
 
 ## 🔥 API Yang Digunakan:
