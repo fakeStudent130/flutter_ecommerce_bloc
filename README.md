@@ -1,6 +1,7 @@
 ## ✅ Feature Done:
   - Registrasi
   - Login
+  - logout
 
 ## ⭐ Feature Selanjutnya:
   - produk
