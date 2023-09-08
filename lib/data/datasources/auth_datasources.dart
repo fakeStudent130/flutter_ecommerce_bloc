@@ -6,11 +6,12 @@ import 'package:http/http.dart' as http;
 
 import '../models/request/register_model.dart';
 import '../models/response/login_response_model.dart';
+import 'endpoint.dart';
 
 class AuthDatasource {
   Future<RegisterResponseModel> register(RegisterModel registerModel) async {
     final response = await http.post(
-      Uri.parse('https://api.escuelajs.co/api/v1/users/'),
+      Uri.parse(Endpoint.baseUrl + Endpoint.register),
       body: registerModel.toMap(),
     );
 
@@ -21,7 +22,7 @@ class AuthDatasource {
 
   Future<LoginResponseModel> login(LoginModel loginModel) async {
     final response = await http.post(
-      Uri.parse('https://api.escuelajs.co/api/v1/auth/login'),
+      Uri.parse(Endpoint.baseUrl + Endpoint.login),
       body: loginModel.toMap(),
     );
 
@@ -35,8 +36,9 @@ class AuthDatasource {
 
     var headers = {'Authorization': 'Bearer $token'};
     final response = await http.get(
-        Uri.parse('https://api.escuelajs.co/api/v1/auth/profile'),
-        headers: headers);
+      Uri.parse(Endpoint.baseUrl + Endpoint.profile),
+      headers: headers,
+    );
     final result = ProfileResponseModel.fromJson(response.body);
     return result;
   }
